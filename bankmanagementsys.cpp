@@ -141,7 +141,6 @@ public:
         if (cin.fail()) {
             cout << "Invalid input. Please enter a number." << endl;
             cin.clear();
-            iptbuffclean();
             return;
         }
         iptbuffclean();
@@ -188,14 +187,12 @@ public:
             while (true) {
                 cout << "Enter amount to withdraw: ";
                 cin >> amount;
-                if (cin.fail() || amount <= 0) {
+                if (amount <= 0) {
                     cout << "Invalid amount. Please enter a positive number." << endl;
                     cin.clear();
-                    iptbuffclean();
                 } else if (amount > acc->balance) {
                     cout << "Insufficient balance. Current balance: " << acc->balance << endl;
                     cin.clear();
-                    iptbuffclean();
                 } else {
                     break;
                 }
